@@ -1,5 +1,6 @@
 import Layout from '@/components/Layout/layout'
 import '@/styles/globals.css'
+import Link from 'next/link'
 import { useState } from 'react'
 
 export default function App({ Component, pageProps }) {
@@ -17,9 +18,18 @@ export default function App({ Component, pageProps }) {
         </div>
         :
         <div >
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
+          {pageProps.statusCode == 404 ? (
+            <div>
+              <Link href='/' >
+                <Component {...pageProps} />
+              </Link>
+            </div>) : (
+            <div>
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            </div>)
+          }
         </div>}
     </>
   )
