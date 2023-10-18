@@ -7,7 +7,7 @@ export default function Home() {
   const [text, setText] = useState('')
 
   useEffect(() => {
-    fetch('/api/hello', {
+    fetch('http://localhost:3000/api/hello', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
