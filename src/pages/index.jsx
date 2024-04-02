@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import xIcon from "../../public/x.svg";
+import changer from "../components/hello";
 
 export default function Home() {
   const [data, setData] = useState("");
@@ -10,19 +11,9 @@ export default function Home() {
   const handleToggle = () => {
     setText("");
   };
+  
   useEffect(() => {
-    fetch("/api/hello", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        text,
-      }),
-    })
-      .then((res) => res.json())
-      .then((result) => setData(result == null ? "" : result))
-      .catch((err) => console.log(err + "error"));
+    setData(changer(text));
   }, [text]);
 
   return (
