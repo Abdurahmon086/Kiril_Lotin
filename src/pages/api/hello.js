@@ -1,5 +1,5 @@
 
-export default function handler(req, res) {
+export default function POST(req, res) {
   let text = req.body.text
 
   var alpha = [
