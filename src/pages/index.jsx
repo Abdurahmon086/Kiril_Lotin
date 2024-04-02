@@ -11,7 +11,6 @@ export default function Home() {
   const handleToggle = () => {
     setText("");
   };
-  
   useEffect(() => {
     setData(changer(text));
   }, [text]);
